@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <%- include('../_extendables/head_links') %>
+</head>
+<body style="background-image: url('img/p.jpg');">
+  <%- include('../_extendables/nav') %>
+  <!-- Page Header -->
+  <header class="masthead3" style="background-image: url('img/p.jpg')";>
+    
+    <div class="container" >
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <div class="page-header" style="height: 100px;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <% articles.forEach(article => { %>
+          <div class="card mt-2" style="background-image: url('img/back.jpg');">
+            <a href="<%= article.slug %>"></a>
+            <div class="card-body">
+              <h4 class="card-title"> <%= article.title %></h4>
+              <div class="card-text ">Author : <%= article.description %>
+                on <%= article.published.toLocaleDateString() %>
+              </div>
+              <p><label for="Tags">Tag :</label><%= article.status %></p>
+              <p class="card-subtitle text-muted mb-2">About    
+                <a href="/about"><span style="color:#007bec">Author</span></a>
+              </p>
+              <a href="/articles/<%= article.slug %>" class="btn btn-primary">Read More</a>
+              <a href="/articles/edit/<%= article.id %>" class="btn btn-info">Edit</a> 
+              <form action="/articles/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                <button type="submit" class="btn btn-danger">Delete</button>
+              </form>
+            </div>
+          </div>
+        <% }) %>
+        <div class="clearfix">
+          <a class="btn btn-primary float-right mt-4" href="#"><%= total_post %>&nbsp; posts so far!</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <%- include('../_extendables/footer-scripts') %>
+</body>
+</html>
