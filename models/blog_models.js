@@ -24,8 +24,8 @@ const blogSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  status: {type: String, required: true, enum: 
-    ['Politics', 'Economics', 'Sport', 'Food', 'Art', 'Cars', 'Travel'], default: 'Politics'},
+  status: [{type: String, required: true, multi: true, enum:
+    ['Politics', 'Economics', 'Sport', 'Food', 'Art', 'Cars', 'Travel'], default: 'Politics', }],
   slug: {
     type: String,
     required: true,

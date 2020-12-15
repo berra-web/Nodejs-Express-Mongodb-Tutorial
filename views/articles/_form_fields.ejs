@@ -11,10 +11,8 @@
   <textarea required name="body" id="body" cols="30" rows="10"  class="form-control"><%= article.body %></textarea>
 </div> 
 <br>
-<br>
 <label for="Tags">Tags</label>
-<select class="custom-select mb-2" name="status">
-  <option selected value="Politics"><%= article.status %></option>
+<select class="custom-select mb-2" name="status" multiple="multiple">
   <option value="Politics">Politics</option>
   <option value="Economics">Economics</option>
   <option value="Sport">Sport</option>
@@ -22,11 +20,17 @@
   <option value="Art">Art</option>
   <option value="Cars">Cars</option>
   <option value="Travel">Travel</option>
-</select>
 <br>
 <div class="form-group mb-2">
+ 
   <label for="published">Timestamp </label>
   <input readonly="" required value="<%= article.published.toLocaleDateString() %>" name="published" id="published"  class="form-control">
-</div>
-<a href="/" class="btn btn-secondary">Cancel</a>
+  <div class="form-group mt-2">
+    <a href="/" class="btn btn-secondary">Cancel</a>
 <button type="submit" class="btn btn-primary">Save</button>
+  </div>
+</div>
+
+
+
+ 
